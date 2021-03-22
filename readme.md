@@ -72,7 +72,7 @@ In the Settings of your repo, create the following secrets;
 
 **Upon merging to `main`/`master`**, Bump will push your new `changelog.xml` and app release to your S3 bucket, making it publicly available to your customers.
 
-Find the link to your `changelog.xml` from Actions → Latest run → Build and expand the "Apply Terraform plan" panel to see the output.
+Find the link to your publicly hosted `changelog.xml` from Actions → Latest run → Build and expand the "Apply Terraform plan" panel to see the output. It will be in the format `https://{{bucketName}}.s3.amazonaws.com/changelog.xml`
 
 
 ---
