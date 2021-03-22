@@ -1,0 +1,49 @@
+name: Create Sparkle Release
+
+on:
+  push:
+    paths:
+    - 'release/latest.md'
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Create changelog
+        env:
+          SPARKLE_PRIVATE_KEY: ${{ secrets.SPARKLE_PRIVATE_KEY }}
+        run: ./.bump/bin/bump
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'Create release changelog'
+          add: '*.xml'
+
+      - uses: hashicorp/setup-terraform@v1
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+
+      - name: Setup Terraform
+        run: terraform init
+        working-directory: ./.bump/
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+
+      - name: Apply Terraform plan
+        run: terraform apply -auto-approve 
+        working-directory: ./.bump/
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+
+      - name: Commit Terraform state
+        uses: EndBug/add-and-commit@v7
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        with:
+          message: 'Create Terraform state'
+          add: '*.tfstate'
+

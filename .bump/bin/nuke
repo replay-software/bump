@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# This script nukes the history of any use of Bump
+# Use wisely!
+
+rm -rf ./.bump/terraform.tfstate
+rm -rf ./.bump/terraform.tfstate.backup
+rm -rf ./release/changelog.xml
+rm -rf ./.bump/.state/latestRelease
+rm -rf ./release/AppExample.zip
+
+touch ./.bump/.state/latestRelease
+
+cat <<EOF > ./release/latest.md
+---
+version: "1.0"
+---
+
+Hello World
+EOF
+
+cat <<EOF > config.yml
+app_name: AppExample 
+app_filename: AppExample.zip # Should match exactly the .zip file found in ./release/
+s3_bucket_name: app-example-distribution # Must be unique
+
+# More variables need to be added to your environment. See the readme
+EOF
