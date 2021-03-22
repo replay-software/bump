@@ -19,7 +19,6 @@ Please note;
 * **Bump has not been tested with the Sparkle 2 Beta**. In theory it should be perfectly compatible but it has only been tested with Sparkle 1.x
 * You'll need an **AWS access key and secret key** to use Bump as it automatically manages an S3 bucket for your Sparkle changelog file and app archives
 * Bump has only been tested with macOS Sparkle releases, not Sparkle-compatible distributions available for other platforms
-* Only works with `.zip` releases. It will not work with other app distribution vehicles unless they are zipped
 * Bump doesn't support Delta updates with Sparkle (yet!)
 
 ---
