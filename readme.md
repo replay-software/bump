@@ -97,4 +97,5 @@ The following keys can be used in the `./release/lastest.md` frontmatter;
 Bump has been crafted to work with GitHub Actions but can also be run locally. Some things to note;
 
 * Expose the [required secrets](#3-create-secrets) as environment variables
-* Run the Bump CLI from the root of the project (e.g. `./.bump/bin/bump`)
+* [Bump Core](https://github.com/replay-software/bump-core), the binary distributed as part of Bump which is responsible for generating `changelog.xml`, is contained in a seperate repo
+* Run the [Bump Core CLI](https://github.com/replay-software/bump-core) from the root of the project (e.g. `./.bump/bin/bump`). 
