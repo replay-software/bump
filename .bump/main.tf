@@ -40,9 +40,22 @@ resource "aws_s3_bucket_object" "changelog" {
   ]
 }
 
-resource "aws_s3_bucket_object" "zipfile" {
+resource "aws_s3_bucket_object" "versioned_zip" {
   bucket = local.s3_bucket_name
   key    = "${replace(local.app_version, ".", "-")}/${local.app_filename}"
+  source = "../release/${local.app_filename}"
+  etag   = filemd5("../release/${local.app_filename}")
+  acl    = "public-read"
+  content_type = "application/octet-stream"
+
+  depends_on = [
+    aws_s3_bucket.bucket,
+  ]
+}
+
+resource "aws_s3_bucket_object" "latest_zip" {
+  bucket = local.s3_bucket_name
+  key    = "latest/${local.app_filename}"
   source = "../release/${local.app_filename}"
   etag   = filemd5("../release/${local.app_filename}")
   acl    = "public-read"
