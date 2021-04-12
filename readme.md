@@ -40,7 +40,7 @@ Please note;
 
 ### 1. Create a new repo using this template
 
-[Create a new repo using this template](https://github.com/almonk/bump/generate). This will copy the entire directory structure into your own GitHub account.
+[Create a new repo using this template](https://github.com/replay-software/bump/generate). This will copy the entire directory structure into your own GitHub account.
 
 ### 2. Update variables
 
