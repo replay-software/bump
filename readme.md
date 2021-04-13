@@ -1,7 +1,7 @@
 
 ![](.bump/assets/artwork.png)
 
-Bump is a zero-config pipeline built with GitHub Actions & Terraform to automate [Sparkle](https://sparkle-project.org) releases.
+Bump is an automated pipeline for releasing apps with [Sparkle](https://sparkle-project.org)
 
 **Features:**
 
