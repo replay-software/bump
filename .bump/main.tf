@@ -24,7 +24,7 @@ locals {
 # To deprovision resources in the future, remove everything below this commment and run `terraform apply`
 resource "aws_s3_bucket" "bucket" {
   bucket = local.s3_bucket_name
-  acl    = "public-read"
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_object" "changelog" {
