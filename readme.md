@@ -33,6 +33,7 @@ Please note;
   - [4. Creating a  release](#4-creating-a--release)
 - [Appendix](#appendix)
   - [S3 Information](#s3-information)
+  - [App archive support](#app-archive-support)
   - [Release frontmatter](#release-frontmatter)
   - [Running locally / self-hosted](#running-locally--self-hosted)
 
@@ -81,16 +82,25 @@ Find the link to your publicly hosted `changelog.xml` from Actions → Latest ru
 
 ### S3 Information
 
-By default, Bump will use aws region `us-east-1`. You can override this by changing the Terraform plan at `.bump/main.tf`
+By default, Bump will use aws region `us-east-1`. You can override this by changing the Terraform plan at `.bump/main.tf`.
+
+### App archive support
+
+Bump supports serving the following app archive types;
+
+* `.zip`
+* `.dmg`
+* `.tar.gz`
 
 ### Release frontmatter
 
 The following keys can be used in the `./release/lastest.md` frontmatter;
 
-| Key Name               | Required? | Type   | Example | Description                                            |
-|------------------------|-----------|--------|---------------|--------------------------------------------------------|
-| `version`              | ☑️         | string | `"1.2.0"`     | The version of your app                                |
-| `minimumSystemVersion` |           | string | `"10.5"`      | The lowest version of macOS that this release supports |
+| Key Name               | Required? | Type   | Example              | Description                                                                                                                                    |
+|------------------------|-----------|--------|----------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `version`              | ☑️         | string | `"1.2.0"` or `"100"` | The version of your app                                                                                                                        |
+| `marketingVersion`     |           | string | `"1.0"`              | Can be used in addition to `version`. **Note:** setting this property means you should use `version` value for the build number (e.g. `"100"`). [Read the Sparkle documentation](https://sparkle-project.org/documentation/publishing/#publishing-an-update) on `shortVersionString` for more info |
+| `minimumSystemVersion` |           | string | `"10.5"`             | The lowest version of macOS that this release supports                                                                                         |
 
 ### Running locally / self-hosted
 
