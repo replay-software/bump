@@ -119,6 +119,8 @@ Bump generates a JSON version of the changelog so that you can easily consume th
 
 e.g. `https://your-bucket-url.s3.aws.com/changelog.xml` → `https://your-bucket-url.s3.aws.com/changelog.json`
 
+**Note:** the default setting for CORS access is to allow all origins. To change this edit the `cors` stanza in the Terraform script at `./bump/main.tf`
+
 ### Updating from a previous version of Bump
 
 Updating Bump is easy. Simply copy the `.bump` folder from this repository to your own.
