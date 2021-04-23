@@ -36,6 +36,7 @@ Please note;
   - [App archive support](#app-archive-support)
   - [Release frontmatter](#release-frontmatter)
   - [Running locally / self-hosted](#running-locally--self-hosted)
+  - [Updating from a previous version of Bump](#updating-from-a-previous-version-of-bump)
 
 ## Getting started
 
@@ -110,3 +111,7 @@ Bump has been crafted to work with GitHub Actions but can also be run locally. S
 * [Bump Core](https://github.com/replay-software/bump-core), the binary distributed as part of Bump which is responsible for generating `changelog.xml`, is contained in a seperate repo
 * Run the [Bump Core CLI](https://github.com/replay-software/bump-core) from the root of the project (e.g. `./.bump/bin/bump`). 
 * You can use [Act](https://github.com/nektos/act) to emulate GitHub Actions on any platform
+
+### Updating from a previous version of Bump
+
+Updating Bump is easy. Simply copy the `.bump` folder from this repository to your own.
