@@ -36,6 +36,7 @@ Please note;
   - [App archive support](#app-archive-support)
   - [Release frontmatter](#release-frontmatter)
   - [Running locally / self-hosted](#running-locally--self-hosted)
+  - [API Support](#api-support)
   - [Updating from a previous version of Bump](#updating-from-a-previous-version-of-bump)
 
 ## Getting started
@@ -111,6 +112,12 @@ Bump has been crafted to work with GitHub Actions but can also be run locally. S
 * [Bump Core](https://github.com/replay-software/bump-core), the binary distributed as part of Bump which is responsible for generating `changelog.xml`, is contained in a seperate repo
 * Run the [Bump Core CLI](https://github.com/replay-software/bump-core) from the root of the project (e.g. `./.bump/bin/bump`). 
 * You can use [Act](https://github.com/nektos/act) to emulate GitHub Actions on any platform
+
+### API Support
+
+Bump generates a JSON version of the changelog so that you can easily consume the changelog in a web app. To use it, find your changelog URL and replace the extension with `.json`
+
+e.g. `https://your-bucket-url.s3.aws.com/changelog.xml` → `https://your-bucket-url.s3.aws.com/changelog.json`
 
 ### Updating from a previous version of Bump
 
