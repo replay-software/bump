@@ -48,6 +48,19 @@ resource "aws_s3_bucket_object" "changelog" {
   ]
 }
 
+resource "aws_s3_bucket_object" "changelog_api" {
+  bucket = local.s3_bucket_name
+  key    = local.changelog_api_filename
+  source = "../release/${local.changelog_api_filename}"
+  etag   = filemd5("../release/${local.changelog_api_filename}")
+  acl    = "public-read"
+  content_type = "application/json"
+
+  depends_on = [
+    aws_s3_bucket.bucket,
+  ]
+}
+
 resource "aws_s3_bucket_object" "versioned_zip" {
   bucket = local.s3_bucket_name
   key    = "${replace(local.app_version, ".", "-")}/${local.app_filename}"
