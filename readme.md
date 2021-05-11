@@ -117,7 +117,7 @@ Bump has been crafted to work with GitHub Actions but can also be run locally. S
 
 Bump generates a JSON version of the changelog so that you can easily consume the changelog in a web app. To use it, find your changelog URL and replace the extension with `.json`
 
-e.g. `https://your-bucket-url.s3.aws.com/changelog.xml` → `https://your-bucket-url.s3.aws.com/changelog.json`
+e.g. `https://your-bucket-url.s3.amazonaws.com/changelog.xml` → `https://your-bucket-url.s3.amazonaws.com/changelog.json`
 
 **Note:** the default setting for CORS access is to allow all origins. To change this edit the `cors` stanza in the Terraform script at `./bump/main.tf`
 
