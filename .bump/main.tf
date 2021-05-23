@@ -15,6 +15,7 @@ provider "aws" {
 
 locals {
   changelog_filename = "changelog.xml"
+  changelog_api_filename = "changelog.json"
   s3_bucket_name = yamldecode(file("../config.yml"))["s3_bucket_name"]
   app_filename = yamldecode(file("../config.yml"))["app_filename"]
   app_version = yamldecode(file(".state/latestRelease"))["version"]
