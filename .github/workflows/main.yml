@@ -39,6 +39,11 @@ jobs:
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+          
+      - name: Remove versioned zip from Terraform state
+        run: terraform state rm aws_s3_bucket_object.versioned_zip 
+        working-directory: ./.bump/
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
 
       - name: Commit Terraform state
         uses: EndBug/add-and-commit@v7
